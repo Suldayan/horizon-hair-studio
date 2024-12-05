@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Data
 @Table(name = "client")
@@ -30,4 +33,11 @@ public class Customer {
     @NotBlank
     @Enumerated(EnumType.STRING)
     private Services service;
+
+    @Column(name = "price")
+    @NotBlank
+    private int price;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TimeSlot> appointments = new HashSet<>();
 }
