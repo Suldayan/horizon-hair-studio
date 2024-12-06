@@ -1,4 +1,4 @@
-package com.example.horizon_barber_service.Model;
+package com.example.horizon_barber_service.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -23,4 +24,7 @@ public class Availability {
 
     @Column(name = "isBooked")
     private Boolean isBooked;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

@@ -1,9 +1,9 @@
-package com.example.horizon_barber_service.Model;
+package com.example.horizon_barber_service.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -25,4 +25,7 @@ public class Barber {
 
     @OneToMany
     private Set<ServiceOffering> services;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

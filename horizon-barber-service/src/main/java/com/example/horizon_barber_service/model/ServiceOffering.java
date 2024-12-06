@@ -1,9 +1,11 @@
-package com.example.horizon_barber_service.Model;
+package com.example.horizon_barber_service.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "service-offerings")
@@ -19,4 +21,7 @@ public class ServiceOffering {
 
     @Column(name = "duration")
     private String estimatedDuration;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
