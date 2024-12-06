@@ -1,9 +1,9 @@
 package com.example.horizonhairstudio_appointment_service.models;
 
 import com.example.horizonhairstudio_appointment_service.enums.Services;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 import java.util.HashSet;
@@ -22,11 +22,11 @@ public class Customer {
     private String name;
 
     @Column(name = "email")
-    @Nullable
+    @NotBlank
     private String email;
 
     @Column(name = "phoneNumber")
-    @Nullable
+    @NotBlank
     private String phoneNumber;
 
     @Column(name = "service")
@@ -36,6 +36,7 @@ public class Customer {
 
     @Column(name = "price")
     @NotBlank
+    @Positive
     private int price;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
