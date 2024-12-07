@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ public class Availability {
     private String id;
 
     @Column(name = "startTime")
+    @NotBlank
     private LocalTime startTime;
 
     @Column(name = "endTime")
