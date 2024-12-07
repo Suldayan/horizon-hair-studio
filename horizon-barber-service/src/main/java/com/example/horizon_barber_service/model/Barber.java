@@ -1,6 +1,8 @@
 package com.example.horizon_barber_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -15,12 +17,15 @@ public class Barber {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank
     private String name;
 
     @Column(name = "email")
+    @NotBlank
     private String email;
 
     @Column(name = "phoneNumber")
+    @NotNull
     private String phoneNumber;
 
     @OneToMany

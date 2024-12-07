@@ -4,7 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -18,13 +18,15 @@ public class Availability {
     private String id;
 
     @Column(name = "startTime")
-    @NotBlank
+    @NotNull
     private LocalTime startTime;
 
     @Column(name = "endTime")
+    @NotNull
     private LocalTime endTime;
 
     @Column(name = "isBooked")
+    @NotNull
     private Boolean isBooked;
 
     private LocalDateTime createdAt;
