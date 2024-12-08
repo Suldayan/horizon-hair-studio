@@ -1,6 +1,7 @@
 package com.example.horizon_barber_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -26,10 +27,14 @@ public class Barber {
 
     @Column(name = "phoneNumber")
     @NotNull
+    @Digits(fraction = 0, integer = 12)
     private String phoneNumber;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
     private Set<ServiceOffering> services;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
+    private Schedule schedule;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
