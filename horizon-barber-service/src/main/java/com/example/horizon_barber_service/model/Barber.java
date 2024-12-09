@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -35,7 +34,4 @@ public class Barber {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
     private Schedule schedule;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

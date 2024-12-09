@@ -28,7 +28,4 @@ public class Availability {
     @Column(name = "isBooked")
     @NotNull
     private Boolean isBooked;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

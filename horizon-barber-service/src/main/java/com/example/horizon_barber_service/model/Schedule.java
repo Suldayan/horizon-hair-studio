@@ -26,6 +26,4 @@ public class Schedule {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "schedule")
     private List<Availability> availability;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

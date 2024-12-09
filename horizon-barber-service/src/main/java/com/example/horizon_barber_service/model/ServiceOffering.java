@@ -26,7 +26,4 @@ public class ServiceOffering {
     @Column(name = "duration")
     @NotBlank
     private String estimatedDuration;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

@@ -1,4 +1,4 @@
-package com.example.horizon_barber_service.dto;
+package com.example.horizon_barber_service.service.dto;
 
 import lombok.Data;
 
