@@ -3,6 +3,7 @@ package com.example.horizon_barber_service.service;
 import com.example.horizon_barber_service.model.Availability;
 import com.example.horizon_barber_service.model.Barber;
 import com.example.horizon_barber_service.model.Schedule;
+import com.example.horizon_barber_service.service.exception.ScheduleManagementException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -16,9 +17,7 @@ public interface ScheduleManagementService {
             Set<Availability> availabilities
     );
 
-    void deleteSchedule(Schedule schedule);
-
-    List<Schedule> getSchedule();
+    void deleteSchedule(Schedule schedule) throws ScheduleManagementException;
 
     Availability createNewAvailability(
             LocalTime startTime,
@@ -27,5 +26,4 @@ public interface ScheduleManagementService {
 
     void deleteAvailabilityByStartTime(Availability availability);
 
-    List<Availability> getAvailabilitySet();
 }
