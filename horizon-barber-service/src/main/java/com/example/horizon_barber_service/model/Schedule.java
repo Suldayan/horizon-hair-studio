@@ -6,16 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "schedules")
 @Data
 public class Schedule {
     @Id
-    private String id;
-
     @NotBlank
     private String barberId;
 
@@ -24,6 +21,5 @@ public class Schedule {
     private LocalDate date;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "schedule")
-    private List<Availability> availability;
-
+    private Set<Availability> availability;
 }

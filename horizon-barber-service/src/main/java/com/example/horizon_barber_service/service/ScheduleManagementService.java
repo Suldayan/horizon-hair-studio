@@ -1,18 +1,31 @@
 package com.example.horizon_barber_service.service;
 
-import com.example.horizon_barber_service.service.dto.AvailabilityDetails;
-import com.example.horizon_barber_service.service.dto.BarberDetails;
-import com.example.horizon_barber_service.service.dto.ScheduleDetails;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import com.example.horizon_barber_service.model.Availability;
+import com.example.horizon_barber_service.model.Barber;
+import com.example.horizon_barber_service.model.Schedule;
 
-@Service
-@Slf4j
-@RequiredArgsConstructor
-public class ScheduleManagementService {
-    private final ScheduleDetails schedule;
-    private final AvailabilityDetails availability;
-    private final BarberDetails barber;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Set;
 
+public interface ScheduleManagementService {
+    Schedule createNewSchedule(
+            Barber barber,
+            LocalDate date,
+            Set<Availability> availabilities
+    );
+
+    void deleteSchedule(Schedule schedule);
+
+    List<Schedule> getSchedule();
+
+    Availability createNewAvailability(
+            LocalTime startTime,
+            LocalTime endTime
+    );
+
+    void deleteAvailabilityByStartTime(Availability availability);
+
+    List<Availability> getAvailabilitySet();
 }

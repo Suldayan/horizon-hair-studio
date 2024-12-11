@@ -1,4 +1,4 @@
-package com.example.horizon_barber_service.service.mapper.impl;
+package com.example.horizon_barber_service.service.impl;
 
 import com.example.horizon_barber_service.model.Barber;
 import com.example.horizon_barber_service.repository.BarberRepository;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BarberMapperServiceImpl implements BarberMapperService {
     private final BarberMapper barberMapper = BarberMapper.INSTANCE;
-    private final BarberRepository barberRepository;
 
     @Override
     public BarberDetails entityToDto(Barber barber) {
@@ -22,9 +21,5 @@ public class BarberMapperServiceImpl implements BarberMapperService {
     @Override
     public Barber dtoToEntity(BarberDetails dto) {
         return barberMapper.barberDTOToBarber(dto);
-    }
-
-    private Barber saveEntity(Barber barber) {
-        return barberRepository.save(barber);
     }
 }
