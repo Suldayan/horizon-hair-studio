@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -16,6 +17,10 @@ import java.time.LocalTime;
 public class Availability {
     @Id
     private String id;
+
+    @Column(name = "date")
+    @NotNull
+    private LocalDate date;
 
     @Column(name = "startTime")
     @NotNull

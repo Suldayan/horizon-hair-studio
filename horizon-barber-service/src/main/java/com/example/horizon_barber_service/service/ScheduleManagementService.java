@@ -1,19 +1,23 @@
 package com.example.horizon_barber_service.service;
 
 import com.example.horizon_barber_service.model.Availability;
-import com.example.horizon_barber_service.service.exception.ScheduleManagementException;
+import com.example.horizon_barber_service.model.Barber;
+import com.example.horizon_barber_service.service.exception.ScheduleManagementRuntime;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Set;
 
 public interface ScheduleManagementService {
 
     Availability createNewAvailability(
+            Barber barber,
+            LocalDate date,
             LocalTime startTime,
             LocalTime endTime
-    ) throws ScheduleManagementException ;
+    ) throws ScheduleManagementRuntime;
 
-    void deleteAvailabilityByStartTime(Availability availability);
+    void deleteAvailabilityByStartTime(Availability availability) throws ScheduleManagementRuntime;
 
-    List<Availability> getAvailabilities();
+    Set<Availability> getAvailabilities();
 }

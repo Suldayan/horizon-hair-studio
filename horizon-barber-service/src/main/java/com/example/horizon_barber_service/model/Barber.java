@@ -34,4 +34,8 @@ public class Barber {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
     private Set<ServiceOffering> services;
+
+    public void addAvailability(Availability availability) {
+        availabilities.add(availability);
+    }
 }
