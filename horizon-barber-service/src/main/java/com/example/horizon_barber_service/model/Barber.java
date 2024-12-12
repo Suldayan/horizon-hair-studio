@@ -29,9 +29,9 @@ public class Barber {
     @Digits(fraction = 0, integer = 12)
     private String phoneNumber;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "barber")
+    private Set<Availability> availabilities;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
     private Set<ServiceOffering> services;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "barber")
-    private Schedule schedule;
 }

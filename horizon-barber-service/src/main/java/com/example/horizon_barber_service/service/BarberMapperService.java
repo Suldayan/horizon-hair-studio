@@ -1,10 +1,10 @@
-package com.example.horizon_barber_service.service.mapper;
+package com.example.horizon_barber_service.service;
 
 import com.example.horizon_barber_service.model.Barber;
 import com.example.horizon_barber_service.service.dto.BarberDetails;
 
 public interface BarberMapperService {
-    BarberDetails entityToDto(Barber barber);
+    BarberDetails barberToBarberDTO(Barber barber);
 
-    Barber dtoToEntity(BarberDetails dto);
+    Barber barberDTOToBarber(BarberDetails dto);
 }
