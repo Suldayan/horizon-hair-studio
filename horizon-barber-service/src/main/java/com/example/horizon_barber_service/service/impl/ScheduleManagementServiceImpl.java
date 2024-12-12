@@ -33,7 +33,7 @@ public class ScheduleManagementServiceImpl implements ScheduleManagementService 
         schedule.setDate(date);
         schedule.setAvailability(availabilities);
         log.info("A new schedule: {} has been successfully created", schedule);
-        return schedule;
+        return scheduleRepository.save(schedule);
     }
 
     @Override
@@ -47,18 +47,19 @@ public class ScheduleManagementServiceImpl implements ScheduleManagementService 
     }
 
     @Override
-    public Availability createNewAvailability(LocalTime startTime,
-                                                   LocalTime endTime) {
-        Availability availability = new Availability();
-        availability.setStartTime(startTime);
-        availability.setEndTime(endTime);
-        availability.setIsBooked(false);
+    public Availability createNewAvailability(
+            LocalTime startTime,
+            LocalTime endTime) {
         // Check if the availability already exists
         if (availabilityRepository.existsByStartTime(startTime)) {
             // For now, return null
             log.error("The availability with time slot: {} already exists", startTime);
             return null;
         }
+        Availability availability = new Availability();
+        availability.setStartTime(startTime);
+        availability.setEndTime(endTime);
+        availability.setIsBooked(false);
         log.info("A new availability: {} has been created", availability);
         return availabilityRepository.save(availability);
     }
