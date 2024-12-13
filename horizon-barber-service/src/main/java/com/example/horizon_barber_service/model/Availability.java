@@ -22,13 +22,9 @@ public class Availability {
     @NotNull
     private LocalDate date;
 
-    @Column(name = "startTime")
+    @Column(name = "timeSlot")
     @NotNull
-    private LocalTime startTime;
-
-    @Column(name = "endTime")
-    @NotNull
-    private LocalTime endTime;
+    private LocalTime timeSlot;
 
     @Column(name = "isBooked")
     @NotNull

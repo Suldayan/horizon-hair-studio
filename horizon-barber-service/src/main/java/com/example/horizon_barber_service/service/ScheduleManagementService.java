@@ -13,8 +13,7 @@ public interface ScheduleManagementService {
     Availability createNewAvailability(
             Barber barber,
             LocalDate date,
-            LocalTime startTime,
-            LocalTime endTime
+            LocalTime timeSlot
     ) throws ScheduleManagementRuntime;
 
     void deleteAvailabilityByStartTime(Availability availability) throws ScheduleManagementRuntime;

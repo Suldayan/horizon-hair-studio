@@ -8,9 +8,7 @@ import java.time.LocalTime;
 public class AvailabilityDetails {
     private String id;
 
-    private LocalTime startTime;
-
-    private LocalTime endTime;
+    private LocalTime timeSlot;
 
     private Boolean isBooked;
 }
